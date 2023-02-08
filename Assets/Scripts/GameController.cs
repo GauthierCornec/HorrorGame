@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public void BeginGame()
     {
         TimerController.instance.BeginTimer();
+        EnemyFollow.instance.SetAgent();
     }
 
     IEnumerator CountdownToStart()

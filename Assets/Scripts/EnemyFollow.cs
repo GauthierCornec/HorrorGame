@@ -5,19 +5,32 @@ using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
+    public static EnemyFollow instance;
 
     public Transform mytarget;
     public NavMeshAgent myAgent;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool isFollowing = false;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        myAgent = GetComponent<NavMeshAgent>();
+    }
+
+    public void SetAgent()
+    {
+        myAgent.SetDestination(mytarget.position);
+        isFollowing = true;
+    }
+
     void Update()
     {
+        if (!isFollowing) return;
         myAgent.SetDestination(mytarget.position);
     }
 }
