@@ -5,12 +5,28 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance;
+
     [SerializeField] private int countdownTime;
     [SerializeField] private TextMeshProUGUI countdownDisplay;
+
+    public GameOverScreen GameOverScreen;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         StartCoroutine(CountdownToStart());
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void GameOver()
+    {
+        GameOverScreen.Setup();
     }
 
     // Update is called once per frame

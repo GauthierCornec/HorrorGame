@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    public GameObject player;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            print("ENTER");
+            GameController.instance.GameOver();
+            player.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
