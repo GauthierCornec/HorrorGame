@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreen : MonoBehaviour
+public class StartMenuController : MonoBehaviour
 {
-    public void Setup()
+    public void ExitButton()
     {
-        gameObject.SetActive(true);
+        Application.Quit();
     }
 
     public void RestartButton()
     {
         SceneManager.LoadScene("Playground Axel");
-    }
-
-    public void ExitButton()
-    {
-        SceneManager.LoadScene("Main Menu");
     }
 }
