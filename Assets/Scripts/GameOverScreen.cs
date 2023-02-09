@@ -12,6 +12,6 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene("Playground");
+        SceneManager.LoadScene("Playground Axel");
     }
 }
